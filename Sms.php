@@ -72,6 +72,7 @@ class Sms extends Component
             case 'ALIYUN':
                 require 'driver/aliyun/aliyun-php-sdk-sms/aliyun-php-sdk-core/Config.php';
 
+                $option['regionid'] = isset($option['regionid'])? $option['regionid']:'cn-hangzhou';
                 if (!isset($option['regionid']) || empty($option['regionid'])) {
                     $this->errors = '参数缺失：regionid必须要设置';
                     return false;
@@ -260,11 +261,10 @@ class Sms extends Component
             $this->_sdkObj->getAcsResponse($requestObj);
             return true;
         }catch (\ClientException $e){
-            throw new Exception($e->getErrorMessage(), $e->getErrorCode());
+            throw new Exception($e->getMessage(), $e->getCode());
         }catch (\ServerException $e){
-            throw new Exception($e->getErrorMessage(), $e->getErrorCode());
+            throw new Exception($e->getMessage(), $e->getCode());
         }
-
 
     }
 
