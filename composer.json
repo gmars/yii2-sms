@@ -1,7 +1,6 @@
 {
   "name": "gmars/yii2-sms",
   "description": "a library for yii2.this library instanced SMS api include alidayu and aliyunsms and so on,i will instance all most popular SMS API",
-  "minimum-stability": "dev",
   "license": "MIT",
   "authors": [
     {
